@@ -10,6 +10,15 @@ namespace CandidateCode
     {
         static void Main(string[] args)
         {
+            string stdin = Console.ReadLine();
+            output(stdin);
+            
+        }
+
+        private static void output(string stdin)
+        {
+            Console.WriteLine("Hello Techgig");
+            Console.WriteLine(stdin);
         }
     }
 }
