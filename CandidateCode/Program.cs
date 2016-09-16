@@ -10,45 +10,29 @@ namespace CandidateCode
     {
         static void Main(string[] args)
         {
-            double principle=0;
-            int interest=0;
-            int year=0;
-            int output=0;
+            int age = 0;
+            try
+            {
+                age = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Input is not in valid format.");
+                Environment.Exit(0);
+            } 
 
-            //Console.WriteLine("Give principle amount:");
-            try
-            {
-                principle = double.Parse(Console.ReadLine().ToString());
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Principle is not in correct format");
-                System.Environment.Exit(0);
-            }
-            //Console.WriteLine("Give Interest rate:");
-            try
-            {
-                interest = int.Parse(Console.ReadLine().ToString());
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Interest is not in correct format");
-                System.Environment.Exit(0);
-            }
-            //Console.WriteLine("Give Year(s):");
-            try
-            {
-                year = int.Parse(Console.ReadLine().ToString());
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Interest is not in correct format");
-                System.Environment.Exit(0);
-            }
-
-            output = day3(principle, interest, year);
-            Console.WriteLine(output);
+            day4(age);
             
+        }
+
+        private static void day4(int age)
+        {
+            if (age < 10)
+                Console.WriteLine("I am happy as having no responsibilities.");
+            else if (age >= 10 && age < 18)
+                Console.WriteLine("I am still happy but starts feeling pressure of life.");
+            else
+                Console.WriteLine("I am very much happy as i handled the pressure very well.");
         }
 
         private static int day3(double principle, int interest, int year)
