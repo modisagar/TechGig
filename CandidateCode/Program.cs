@@ -21,8 +21,18 @@ namespace CandidateCode
                 Environment.Exit(0);
             }
 
-            day5(number);
-            
+            day6(number);
+        }
+
+        private static void day6(int number)
+        {
+            int count = 0;
+            while (number > 0)
+            {
+                number = number / 10;
+                count++;
+            }
+            Console.WriteLine(count);
         }
 
         private static void day5(int number)
