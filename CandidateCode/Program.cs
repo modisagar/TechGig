@@ -10,10 +10,25 @@ namespace CandidateCode
     {
         static void Main(string[] args)
         {
-            int number = 0;
+            int number1 = 0;
             try
             {
-                number = Convert.ToInt32(Console.ReadLine());
+                number1 = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Input is not in valid format.");
+                Environment.Exit(0);
+            }
+            int number2 = 0;
+            try
+            {
+                number2 = Convert.ToInt32(Console.ReadLine());
+                if (number2 < number1)
+                {
+                    Console.WriteLine("Wrong range given.");
+                    Environment.Exit(0);
+                }
             }
             catch (Exception)
             {
@@ -21,7 +36,32 @@ namespace CandidateCode
                 Environment.Exit(0);
             }
 
-            day6(number);
+            day7(number1,number2);
+        }
+
+        private static void day7(int number1, int number2)
+        {
+            int count = 0;
+            for (int i = number1; i < number2; i++)
+            {
+                if (isPrime(i))
+                    count++;
+            }
+            Console.WriteLine(count);
+        }
+
+        private static bool isPrime(int i)
+        {
+            if (i == 1)
+                return false;
+            for (long j = 2; j < i; j++) 
+            {
+                if (i % j == 0) // you don't need the first condition
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         private static void day6(int number)

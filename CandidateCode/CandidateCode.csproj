@@ -47,6 +47,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="challenge\day1_img1.JPG" />
+    <Content Include="challenge\day1_img2.JPG" />
+    <Content Include="challenge\day2_img1.JPG" />
+    <Content Include="challenge\day2_img2.JPG" />
+    <Content Include="challenge\day3_img1.JPG" />
+    <Content Include="challenge\day3_img2.JPG" />
+    <Content Include="challenge\day4_img1.JPG" />
+    <Content Include="challenge\day4_img2.JPG" />
+    <Content Include="challenge\day5_img1.JPG" />
+    <Content Include="challenge\day6_img1.JPG" />
+    <Content Include="challenge\day6_img2.JPG" />
+    <Content Include="challenge\day7_img1.JPG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
