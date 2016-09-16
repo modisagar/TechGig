@@ -10,19 +10,32 @@ namespace CandidateCode
     {
         static void Main(string[] args)
         {
-            int age = 0;
+            int number = 0;
             try
             {
-                age = Convert.ToInt32(Console.ReadLine());
+                number = Convert.ToInt32(Console.ReadLine());
             }
             catch (Exception)
             {
                 Console.WriteLine("Input is not in valid format.");
                 Environment.Exit(0);
-            } 
+            }
 
-            day4(age);
+            day5(number);
             
+        }
+
+        private static void day5(int number)
+        {
+            int output = 1;
+
+            for (int i = number; i >= 1; i--)
+            {
+                output = output * i;
+            }
+            
+            
+            Console.WriteLine(output);
         }
 
         private static void day4(int age)
