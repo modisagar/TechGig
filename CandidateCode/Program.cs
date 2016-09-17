@@ -20,7 +20,23 @@ namespace CandidateCode
                 throw new Exception("Input is not in valid format.");
             }
 
-            day8(number);
+            day9(number);
+        }
+
+        private static void day9(int number)
+        {
+            double sum = 0;
+            
+            for (int i = number; i > 0; i = i / 10)
+            {
+                int rem = i % 10;
+                sum = sum + Math.Pow(Convert.ToDouble(rem), Convert.ToDouble(number.ToString().Length));
+            }
+            
+            if (sum == number)
+                Console.WriteLine("True");
+            else
+                Console.WriteLine("False");
         }
 
         private static void day8(int number)
@@ -39,9 +55,9 @@ namespace CandidateCode
                 i = i / 10;
             }
             if (sum == number)
-                Console.WriteLine("true");
+                Console.WriteLine("True");
             else
-                Console.WriteLine("false");
+                Console.WriteLine("False");
             
         }
 
