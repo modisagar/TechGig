@@ -60,6 +60,8 @@
     <Content Include="challenge\day6_img1.JPG" />
     <Content Include="challenge\day6_img2.JPG" />
     <Content Include="challenge\day7_img1.JPG" />
+    <Content Include="challenge\day8_img1.JPG" />
+    <Content Include="challenge\day8_img2.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

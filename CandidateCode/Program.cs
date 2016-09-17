@@ -10,33 +10,39 @@ namespace CandidateCode
     {
         static void Main(string[] args)
         {
-            int number1 = 0;
+            int number = 0;
             try
             {
-                number1 = Convert.ToInt32(Console.ReadLine());
+                number = Convert.ToInt32(Console.ReadLine());
             }
             catch (Exception)
             {
-                Console.WriteLine("Input is not in valid format.");
-                Environment.Exit(0);
-            }
-            int number2 = 0;
-            try
-            {
-                number2 = Convert.ToInt32(Console.ReadLine());
-                if (number2 < number1)
-                {
-                    Console.WriteLine("Wrong range given.");
-                    Environment.Exit(0);
-                }
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Input is not in valid format.");
-                Environment.Exit(0);
+                throw new Exception("Input is not in valid format.");
             }
 
-            day7(number1,number2);
+            day8(number);
+        }
+
+        private static void day8(int number)
+        {
+            double sum = 0;
+            int i = number;
+            //for (int i = number; i > 0; i = i / 10)
+            //{
+            //    int rem = i % 10;
+            //    sum = sum + rem * rem * rem;
+            //}
+            while (i > 0)
+            {
+                int rem = i % 10;
+                sum = sum + Math.Pow(Convert.ToDouble(rem), 3);
+                i = i / 10;
+            }
+            if (sum == number)
+                Console.WriteLine("true");
+            else
+                Console.WriteLine("false");
+            
         }
 
         private static void day7(int number1, int number2)
@@ -54,7 +60,7 @@ namespace CandidateCode
         {
             if (i == 1)
                 return false;
-            for (long j = 2; j < i; j++) 
+            for (long j = 2; j < i; j++)
             {
                 if (i % j == 0) // you don't need the first condition
                 {
@@ -83,8 +89,8 @@ namespace CandidateCode
             {
                 output = output * i;
             }
-            
-            
+
+
             Console.WriteLine(output);
         }
 
@@ -105,12 +111,12 @@ namespace CandidateCode
 
         private static void day2(string str)
         {
-            
+
             if (!string.IsNullOrEmpty(str))
             {
                 Int32 intValue;
                 float doubleValue;
-                
+
                 if (Int32.TryParse(str, out intValue))
                     Console.WriteLine("This input is of type Integer.");
                 else if (float.TryParse(str, out doubleValue))
@@ -118,10 +124,10 @@ namespace CandidateCode
                 else if (str is string)
                     Console.WriteLine("This input is of type String.");
                 else
-                    Console.WriteLine("This is something else."); 
+                    Console.WriteLine("This is something else.");
             }
         }
-        
+
         private static void day1(string stdin)
         {
             Console.WriteLine("Hello Techgig");
