@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CandidateCode
 {
@@ -19,10 +15,39 @@ namespace CandidateCode
             {
                 throw new Exception("Input is not in valid format.");
             }
-
-            day9(number);
+            int[] arr = new int[number];
+            string strArr = Console.ReadLine();
+            try
+            {
+                arr = Array.ConvertAll(strArr.Split(new char[] { ' ' }, number), int.Parse);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Input is not in valid format.");
+            }
+            
+            day10(number,arr);
         }
 
+        private static void day10(int number, int[] arr)
+        {
+            int first = int.MinValue;
+            int second = int.MinValue;
+
+            foreach (int i in arr)
+            { 
+                if (i > first)
+                {
+                    second = first;
+                    first = i;
+                }
+                else if (i > second)
+                    second = i;
+            }
+            Console.WriteLine(second);
+        }
+
+        
         private static void day9(int number)
         {
             double sum = 0;

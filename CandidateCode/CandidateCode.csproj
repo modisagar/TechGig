@@ -49,6 +49,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="challenge\day10_img1.JPG" />
     <Content Include="challenge\day1_img1.JPG" />
     <Content Include="challenge\day1_img2.JPG" />
     <Content Include="challenge\day2_img1.JPG" />
