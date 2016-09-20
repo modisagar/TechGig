@@ -6,27 +6,44 @@ namespace CandidateCode
     {
         static void Main(string[] args)
         {
-            int number = 0;
-            try
+            //int number = 0;
+            //try
+            //{
+            //    number = Convert.ToInt32(Console.ReadLine());
+            //}
+            //catch (Exception)
+            //{
+            //    throw new Exception("Input is not in valid format.");
+            //}
+            //int[] arr = new int[number];
+            //string strArr = Console.ReadLine();
+            //try
+            //{
+            //    arr = Array.ConvertAll(strArr.Split(new char[] { ' ' }, number), int.Parse);
+            //}
+            //catch (Exception)
+            //{
+            //    throw new Exception("Input is not in valid format.");
+            //}
+            string sampleText = Console.ReadLine();
+
+            day11(sampleText);
+        }
+
+        private static void day11(string sampleText)
+        {
+            int upper = 0;
+            int lower = 0;
+            foreach (char item in sampleText)
             {
-                number = Convert.ToInt32(Console.ReadLine());
+                if (char.IsUpper(item))
+                    upper++;
+                else if (char.IsLower(item))
+                    lower++;
             }
-            catch (Exception)
-            {
-                throw new Exception("Input is not in valid format.");
-            }
-            int[] arr = new int[number];
-            string strArr = Console.ReadLine();
-            try
-            {
-                arr = Array.ConvertAll(strArr.Split(new char[] { ' ' }, number), int.Parse);
-            }
-            catch (Exception)
-            {
-                throw new Exception("Input is not in valid format.");
-            }
-            
-            day10(number,arr);
+            Console.WriteLine(upper);
+            Console.WriteLine(lower);
+
         }
 
         private static void day10(int number, int[] arr)
@@ -35,7 +52,7 @@ namespace CandidateCode
             int second = int.MinValue;
 
             foreach (int i in arr)
-            { 
+            {
                 if (i > first)
                 {
                     second = first;
@@ -47,17 +64,17 @@ namespace CandidateCode
             Console.WriteLine(second);
         }
 
-        
+
         private static void day9(int number)
         {
             double sum = 0;
-            
+
             for (int i = number; i > 0; i = i / 10)
             {
                 int rem = i % 10;
                 sum = sum + Math.Pow(Convert.ToDouble(rem), Convert.ToDouble(number.ToString().Length));
             }
-            
+
             if (sum == number)
                 Console.WriteLine("True");
             else
@@ -83,7 +100,7 @@ namespace CandidateCode
                 Console.WriteLine("True");
             else
                 Console.WriteLine("False");
-            
+
         }
 
         private static void day7(int number1, int number2)
