@@ -6,28 +6,78 @@ namespace CandidateCode
     {
         static void Main(string[] args)
         {
-            //int number = 0;
-            //try
-            //{
-            //    number = Convert.ToInt32(Console.ReadLine());
-            //}
-            //catch (Exception)
-            //{
-            //    throw new Exception("Input is not in valid format.");
-            //}
-            //int[] arr = new int[number];
-            //string strArr = Console.ReadLine();
-            //try
-            //{
-            //    arr = Array.ConvertAll(strArr.Split(new char[] { ' ' }, number), int.Parse);
-            //}
-            //catch (Exception)
-            //{
-            //    throw new Exception("Input is not in valid format.");
-            //}
-            string sampleText = Console.ReadLine();
+            //input matrix
+            int[,] matrix1 = getMatrix();
+            int[,] matrix2 = getMatrix();
+            //add 2 matrix
+            if (matrix1.GetLength(0) == matrix2.GetLength(0) && matrix1.GetLength(1) == matrix2.GetLength(1))
+            {
+                int[,] resultMatrix = addMatrix(matrix1, matrix2);
+                //print the result matrix
+                day12(resultMatrix);
+            }
+            else
+                Console.WriteLine("matrix dimentions are not matching");
+            
+        }
 
-            day11(sampleText);
+        private static void day12(int[,] resultMatrix)
+        {
+            for (int i = 0; i < resultMatrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < resultMatrix.GetLength(1); j++)
+                {
+                    if (j == resultMatrix.GetLength(1)-1)
+                        Console.Write(string.Format("{0}", resultMatrix[i, j]));
+                    else
+                        Console.Write(string.Format("{0} ", resultMatrix[i, j]));
+                }
+                Console.WriteLine();
+            }
+        }
+
+        private static int[,] addMatrix(int[,] matrix1, int[,] matrix2)
+        {
+            int[,] matrix = new int[matrix1.GetLength(0), matrix1.GetLength(1)];
+            for (int i = 0; i < matrix1.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix1.GetLength(1); j++)
+                {
+                    matrix[i, j] = matrix1[i, j] + matrix2[i, j];
+                }
+            }
+            return matrix;
+        }
+
+        private static int[,] getMatrix()
+        {
+            int row, col = 0;
+            int[] arr = new int[2];
+            string rowcol = Console.ReadLine(); // get the size of matrix
+            try
+            {
+                arr = Array.ConvertAll(rowcol.Split(' '), int.Parse);
+                row = arr[0];
+                col = arr[1];
+            }
+            catch (Exception)
+            {
+                throw new Exception("Input is not in valid format.");
+            }
+
+            int[,] matrix = new int[row, col];//blank Matrix
+            for (int i = 0; i < row; i++)
+            {
+                string getrow = Console.ReadLine();//get matrix row
+                int[] temparr = new int[col];
+                temparr = Array.ConvertAll(getrow.Split(new char[] { ' ' }, col), int.Parse);//get col data
+                for (int j = 0; j < temparr.Length; j++)
+                {
+                    matrix[i, j] = temparr[j];//assign data to matrix in row col
+                }
+            }
+
+            return matrix;
         }
 
         private static void day11(string sampleText)
